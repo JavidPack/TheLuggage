@@ -9,6 +9,6 @@ namespace TheLuggage
 		public override void ResetEffects()
 		{
 			theLuggagePet = false;
-		}	
+		}
 	}
 }
