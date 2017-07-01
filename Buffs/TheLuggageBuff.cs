@@ -8,8 +8,8 @@ namespace TheLuggage.Buffs
 		public override void SetDefaults()
 		{
 			Main.buffNoTimeDisplay[Type] = true;
-			Main.buffName[this.Type] = "The Luggage";
-			Main.buffTip[this.Type] = "Half suitcase, half homicidal maniac";
+			DisplayName.SetDefault("The Luggage");
+			Description.SetDefault("Half suitcase, half homicidal maniac");
 			Main.vanityPet[Type] = true;
 		}
 
