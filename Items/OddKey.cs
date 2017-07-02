@@ -6,9 +6,14 @@ namespace TheLuggage.Items
 {
 	public class OddKey : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Odd Key");
+			Tooltip.SetDefault("Summons the Luggage");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Odd Key";
 			item.damage = 0;
 			item.useStyle = 1;
 			item.shoot = mod.ProjectileType("TheLuggagePet");
@@ -19,7 +24,6 @@ namespace TheLuggage.Items
 			item.useTime = 20;
 			item.rare = 3;
 			item.noMelee = true;
-			item.toolTip = "Summons The Luggage";
 			item.value = Item.buyPrice(0, 3, 0, 0);
 			item.buffType = mod.BuffType("TheLuggageBuff");
 		}

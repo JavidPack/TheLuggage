@@ -8,9 +8,13 @@ namespace TheLuggage.Projectiles
 {
 	public class TheLuggagePet : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Luggage");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "The Luggage";
 			projectile.width = 32;//24;
 			projectile.height = 44;// 24;
 								   //   projectile.aiStyle = 26; // ???
@@ -146,7 +150,7 @@ namespace TheLuggage.Projectiles
 								Main.item[j] = thisPlayer.GetItem(projectile.owner, Main.item[j], false, false);
 								if (Main.netMode == 1)
 								{
-									NetMessage.SendData(21, -1, -1, "", j, 0f, 0f, 0f, 0, 0, 0);
+									NetMessage.SendData(21, -1, -1, null, j, 0f, 0f, 0f, 0, 0, 0);
 								}
 							}
 

@@ -1,5 +1,5 @@
 author = jopojelly
-version = 0.1.1
+version = 0.1.2
 displayName = The Luggage
 homepage = http://forums.terraria.org/index.php?threads/the-luggage-the-loot-slave-pet.34482/
 buildIgnore = .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config
