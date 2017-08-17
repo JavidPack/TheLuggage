@@ -16,18 +16,18 @@ namespace TheLuggage.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 18000;
-			TheLuggagePlayer modPlayer = (TheLuggagePlayer)player.GetModPlayer(mod, "TheLuggagePlayer");
+			TheLuggagePlayer modPlayer = player.GetModPlayer<TheLuggagePlayer>();
 			modPlayer.theLuggagePet = true;
 			//player.truffle = true;
 			bool theLuggageNotSpawned = true;
 
-			if (player.ownedProjectileCounts[mod.ProjectileType("TheLuggagePet")] > 0)
+			if (player.ownedProjectileCounts[mod.ProjectileType<Projectiles.TheLuggagePet>()] > 0)
 			{
 				theLuggageNotSpawned = false;
 			}
 			if (theLuggageNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.position.X + (float)(player.width / 2) * 2, player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("TheLuggagePet"), 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.position.X + (float)(player.width / 2) * 2, player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType<Projectiles.TheLuggagePet>(), 0, 0f, player.whoAmI, 0f, 0f);
 			}
 		}
 	}

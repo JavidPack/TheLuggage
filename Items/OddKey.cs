@@ -16,7 +16,7 @@ namespace TheLuggage.Items
 		{
 			item.damage = 0;
 			item.useStyle = 1;
-			item.shoot = mod.ProjectileType("TheLuggagePet");
+			item.shoot = mod.ProjectileType<Projectiles.TheLuggagePet>();
 			item.width = 16;
 			item.height = 30;
 			item.UseSound = SoundID.Item2;
@@ -25,7 +25,7 @@ namespace TheLuggage.Items
 			item.rare = 3;
 			item.noMelee = true;
 			item.value = Item.buyPrice(0, 3, 0, 0);
-			item.buffType = mod.BuffType("TheLuggageBuff");
+			item.buffType = mod.BuffType<Buffs.TheLuggageBuff>();
 		}
 
 		public override void AddRecipes()

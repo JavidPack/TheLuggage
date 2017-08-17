@@ -40,7 +40,7 @@ namespace TheLuggage.Projectiles
 
 			for (int j = 0; j < 400; j++)
 			{
-				if (Main.item[j].active && Main.item[j].noGrabDelay == 0 && Main.item[j].owner == projectile.owner)
+				if (Main.item[j].active && Main.item[j].noGrabDelay == 0 && Main.item[j].owner == projectile.owner && ItemLoader.CanPickup(Main.item[j], Main.player[Main.item[j].owner]) && Main.player[Main.item[j].owner].ItemSpace(Main.item[j]))
 				{
 					if (ItemID.Sets.NebulaPickup[Main.item[j].type])
 					{
@@ -76,7 +76,7 @@ namespace TheLuggage.Projectiles
 
 			for (int j = 0; j < 400; j++)
 			{
-				if (Main.item[j].active && Main.item[j].noGrabDelay == 0 && Main.item[j].owner == projectile.owner)
+				if (Main.item[j].active && Main.item[j].noGrabDelay == 0 && Main.item[j].owner == projectile.owner && ItemLoader.CanPickup(Main.item[j], thisPlayer))
 				{
 					int num = defaultItemGrabRange;//Player.defaultItemGrabRange;
 
@@ -88,6 +88,10 @@ namespace TheLuggage.Projectiles
 							if (!ItemLoader.OnPickup(Main.item[j], thisPlayer))
 							{
 							    Main.item[j] = new Item();
+								if (Main.netMode == 1)
+								{
+									NetMessage.SendData(21, -1, -1, null, j, 0f, 0f, 0f, 0, 0, 0);
+								}
 							    continue;
 							}
 
